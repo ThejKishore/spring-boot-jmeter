@@ -1,0 +1,15 @@
+### Create Employee (JSON)
+POST localhost:8080/employee
+Content-Type: application/json
+
+{
+  "name": "name_7920e4721c34",
+  "email": "email_d837b1d5d67a",
+  "phone": "phone_a2736cfab6c7"
+}
+
+### Get All Employees
+GET localhost:8080/employee
+
+### Get Employee by ID
+GET localhost:8080/employee/1
