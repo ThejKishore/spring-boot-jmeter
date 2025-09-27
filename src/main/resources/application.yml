@@ -5,3 +5,20 @@ spring:
     virtual:
       enable: true
 
+
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        generate_statistics: true
+
+logging:
+  level:
+    root: error
+    com.example.demo.Demo1Application: info
+    com.example.demo.util.LoggingFilter: info
+    org.hibernate.sql: trace
+    org.hibernate.stat: trace
+    org.hibernate.type.descriptor.sql: trace
+    org.hibernate.orm.jdbc.bind: trace
+

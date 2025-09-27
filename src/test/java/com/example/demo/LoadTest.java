@@ -11,8 +11,18 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static us.abstracta.jmeter.javadsl.JmeterDsl.*;
 
+/**
+ * Simple load test using JMeter Java DSL to exercise the employee API endpoints.
+ */
 public class LoadTest {
 
+    /**
+     * Generates a random string of the given length from the provided alphabet.
+     *
+     * @param alphabet source characters to choose from
+     * @param len desired length of the random string
+     * @return generated random string
+     */
     private static String randomFrom(String alphabet, int len) {
         StringBuilder sb = new StringBuilder(len);
         ThreadLocalRandom r = ThreadLocalRandom.current();
@@ -22,6 +32,11 @@ public class LoadTest {
         return sb.toString();
     }
 
+    /**
+     * Runs a small load test plan exercising create, get by id, and list endpoints.
+     *
+     * @throws IOException if the JMeter HTML report cannot be written
+     */
     @Test
     public void testLoad() throws IOException {
         String baseUrl = System.getProperty("targetBaseUrl", "http://localhost:8080");
@@ -36,7 +51,7 @@ public class LoadTest {
         testPlan(
             httpDefaults()
                 .url(baseUrl),
-            threadGroup(5, 10,
+            threadGroup(10, 10,
                 // Default headers for JSON API
                 httpHeaders()
                     .header("Content-Type", "application/json")

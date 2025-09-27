@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * JPA entity representing an employee record.
+ */
 @Entity
 @Data
 @AllArgsConstructor
